@@ -1,15 +1,19 @@
-import express, { Request, Response } from 'express'
+import 'dotenv/config';
+import express from 'express'
 import bodyParser from 'body-parser'
+import cookieParser from "cookie-parser";
+import contactsRouter from "./contacts/router";
+import customersRouter from "./customers/router";
 
-const app: express.Application = express()
-const address: string = "0.0.0.0:3000"
+const app = express();
+const port = process.env.SERVER_PORT;
 
+app.use(cookieParser());
 app.use(bodyParser.json())
 
-app.get('/', function (req: Request, res: Response) {
-    res.send('Hello World!')
-})
+app.use('/contacts', contactsRouter);
+app.use('/customers', customersRouter);
 
-app.listen(3000, function () {
-    console.log(`starting app on: ${address}`)
+app.listen(port, function () {
+    console.log(`App is listening on port: ${port}`)
 })
