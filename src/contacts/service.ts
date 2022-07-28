@@ -9,4 +9,7 @@ export default class ContactsService {
     const results = await db.query(`SELECT * FROM contacts`);
     return results.rows;
   }
+  static async close() {
+    await db.end();
+  }
 }

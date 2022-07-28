@@ -1,7 +1,9 @@
 import ContactsService from './service';
 
 describe('ContactsService', () => {
-  // beforeEach(() => {});
+  afterAll(async () => {
+    await ContactsService.close();
+  });
 
   test('getAll', async () => {
     const results = await ContactsService.getAll();
