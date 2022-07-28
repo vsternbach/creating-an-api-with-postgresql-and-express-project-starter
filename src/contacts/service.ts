@@ -6,7 +6,7 @@ export default class ContactsService {
     return results.rows;
   }
   static async getAll() {
-    const results = await db.query(``);
+    const results = await db.query(`SELECT * FROM contacts`);
     return results.rows;
   }
 }

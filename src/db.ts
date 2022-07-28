@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {Pool} from 'pg';
 
 const {POSTGRES_DB, POSTGRES_PASSWORD, POSTGRES_URL, POSTGRES_USER} = process.env;

@@ -10,4 +10,9 @@ export default class CustomersCtrl {
     const result = await CustomersService.getAll();
     res.send(result);
   }
+
+  static async create(req: Request, res: Response) {
+    const result = await CustomersService.create(req.body);
+    res.send(result);
+  }
 }

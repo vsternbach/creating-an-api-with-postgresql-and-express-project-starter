@@ -3,7 +3,9 @@ import {CustomerDTO} from "./dto";
 
 export default class CustomersService {
   static async create(customer: CustomerDTO) {
-    const results = await db.query(``);
+    const results = await db.query(`
+    INSERT INTO customers(customer_id, customer_name)
+    VALUES (default, 'test')`);
     return results.rows;
   }
   static async getById(id: string): Promise<CustomerDTO> {
